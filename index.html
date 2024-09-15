@@ -1,7 +1,9 @@
-<html><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stuff</title>
+    <title>Fullscreen Video</title>
     <style>
         body, html {
             margin: 0;
@@ -9,14 +11,33 @@
             height: 100%;
             overflow: hidden;
         }
-        iframe {
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://ia904609.us.archive.org/4/items/rick-roll/Rick%20Roll.mp4" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <video id="myVideo" src="https://ia904609.us.archive.org/4/items/rick-roll/Rick%20Roll.mp4" autoplay loop></video>
+
+    <script>
+        const videoElement = document.getElementById('myVideo');
+
+
+        videoElement.addEventListener('play', function() {
+            if (videoElement.requestFullscreen) {
+                videoElement.requestFullscreen();
+            } else if (videoElement.webkitRequestFullscreen) { // Safari
+                videoElement.webkitRequestFullscreen();
+            } else if (videoElement.msRequestFullscreen) { // IE11
+                videoElement.msRequestFullscreen();
+            }
+        });
+        videoElement.play();
+    </script>
 </body>
 </html>
