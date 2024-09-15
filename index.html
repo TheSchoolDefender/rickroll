@@ -23,21 +23,5 @@
 </head>
 <body>
     <video id="myVideo" src="https://ia904609.us.archive.org/4/items/rick-roll/Rick%20Roll.mp4" autoplay loop></video>
-
-    <script>
-        const videoElement = document.getElementById('myVideo');
-
-
-        videoElement.addEventListener('play', function() {
-            if (videoElement.requestFullscreen) {
-                videoElement.requestFullscreen();
-            } else if (videoElement.webkitRequestFullscreen) { // Safari
-                videoElement.webkitRequestFullscreen();
-            } else if (videoElement.msRequestFullscreen) { // IE11
-                videoElement.msRequestFullscreen();
-            }
-        });
-        videoElement.play();
-    </script>
 </body>
 </html>
